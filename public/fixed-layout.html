@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Own Marble House - Proforma Invoice</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        /* A4 size settings */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        :root {
+            --primary: #1a2639;
+            --secondary: #3e4a61;
+            --accent: #3d97c9; /* Changed to match logo blue */
+            --accent-light: #c2d7e9;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --white: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 15mm;
+            position: relative;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .page {
+                width: 210mm;
+                min-height: 297mm;
+                margin: 0;
+                padding: 15mm;
+                page-break-after: always;
+                box-shadow: none;
+            }
+            
+            .page:last-child {
+                page-break-after: auto;
+            }
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 22pt;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 14pt;
+            margin: 12px 0 8px;
+            position: relative;
+            padding-bottom: 6px;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        h3 {
+            font-size: 12pt;
+            margin: 10px 0 6px;
+        }
+        
+        p {
+            margin-bottom: 6px;
+            font-size: 9pt;
+            color: var(--secondary);
+        }
+        
+        .document-title {
+            text-align: center;
+            font-size: 24pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5mm;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1mm;
+            padding-bottom: 1mm;
+            border-bottom: 1px solid var(--gray-300);
+        }
+        
+        .company-info {
+            width: 50%;
+        }
+        
+        .company-name {
+            font-size: 16pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2mm;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .company-details {
+            font-size: 8pt;
+            color: var(--secondary);
+        }
+        
+        .logo-container {
+            width: 50%;
+            text-align: right;
+        }
+        
+        .logo {
+            max-width: 180px;
+            height: auto;
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: var(--accent);
+            margin-bottom: 3mm;
+            font-size: 10pt;
+        }
+        
+        .section {
+            margin-bottom: 8mm;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 2mm;
+            font-size: 11pt;
+        }
+        
+        ul, ol {
+            margin-left: 5mm;
+            margin-bottom: 6px;
+            padding-left: 10px;
+        }
+        
+        li {
+            margin-bottom: 1.5mm;
+            font-size: 9pt;
+            color: var(--secondary);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 5mm;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 4mm;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .product-card {
+            display: flex;
+            margin-bottom: 6mm;
+            border: 1px solid var(--gray-300);
+            border-radius: 2mm;
+            overflow: hidden;
+        }
+        
+        .product-image {
+            width: 25%;
+            background-color: var(--gray-200);
+            min-height: 20mm;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            width: 75%;
+            padding: 2mm;
+        }
+        
+        .product-info h3 {
+            margin-top: 0;
+            font-size: 11pt;
+        }
+        
+        .image-gallery {
+            display: flex;
+            gap: 2mm;
+            margin: 4mm 0;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            border-radius: 2mm;
+            overflow: hidden;
+            height: 30mm;
+            background-color: var(--gray-200);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .invoice-details {
+            margin-bottom: 6mm;
+            padding: 3mm;
+            background-color: var(--gray-100);
+            border-radius: 2mm;
+        }
+        
+        .invoice-number {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1mm;
+            font-size: 10pt;
+        }
+        
+        .date {
+            color: var(--secondary);
+            font-size: 9pt;
+            margin-bottom: 1mm;
+        }
+        
+        .client-info {
+            margin-bottom: 6mm;
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 1.5mm;
+        }
+        
+        .info-label {
+            width: 25mm;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 9pt;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: var(--secondary);
+            font-size: 9pt;
+        }
+        
+        .quote-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 6mm;
+            font-size: 8pt;
+        }
+        
+        .quote-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5mm;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .quote-table th:first-child {
+            border-top-left-radius: 1.5mm;
+        }
+        
+        .quote-table th:last-child {
+            border-top-right-radius: 1.5mm;
+        }
+        
+        .quote-table td {
+            padding: 1.5mm;
+            border-bottom: 1px solid var(--gray-300);
+            color: var(--secondary);
+        }
+        
+        .quote-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .quote-table tr:nth-child(even) {
+            background-color: var(--gray-100);
+        }
+        
+        .totals {
+            margin: 4mm 0 6mm;
+            padding: 3mm;
+            background-color: var(--gray-100);
+            border-radius: 2mm;
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1mm 0;
+            font-weight: 600;
+            font-size: 9pt;
+        }
+        
+        .total-row-name {
+            color: var(--primary);
+        }
+        
+        .conditions {
+            margin-top: 6mm;
+            padding: 3mm;
+            background-color: var(--gray-100);
+            border-radius: 2mm;
+        }
+        
+        .conditions-title {
+            display: block;
+            margin-bottom: 1.5mm;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 10pt;
+        }
+        
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10mm;
+            padding-top: 3mm;
+        }
+        
+        .signature-box {
+            width: 45%;
+        }
+        
+        .signature-line {
+            margin-top: 12mm;
+            border-top: 1px solid var(--gray-400);
+            padding-top: 1.5mm;
+            font-size: 8pt;
+            color: var(--secondary);
+            text-align: center;
+        }
+        
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        
+        .two-column {
+            display: flex;
+            gap: 4mm;
+        }
+        
+        .column {
+            flex: 1;
+        }
+        
+        /* Brand logos section */
+        .brand-logos {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3mm;
+            margin: 6mm 0;
+            padding: 4mm;
+            background-color: var(--gray-100);
+            border-radius: 2mm;
+        }
+        
+        .brand-logo {
+            width: calc(20% - 3mm);
+            height: 15mm;
+            background-color: white;
+            border: 1px solid var(--gray-300);
+            border-radius: 1mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2mm;
+        }
+        
+        .brand-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page 1: Company Profile -->
+    <div class="page">
+        <div class="header">
+            <div class="company-info">
+                <div class="company-details">
+                    Headquarters: Irinjalakuda, Thrissur, Kerala<br>
+                    Showroom: Potta, Chalakudy, Kerala<br>
+                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                </div>
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-03-18_133440-removebg-preview-gi8AkSs2NzIEa7HsxZzyvuWa4agXyd.png" alt="Our Own Marble House Logo" class="logo">
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Overview</h2>
+            <p>Since 1989, Our Own Marble House has been a trusted name in the building materials industry, specializing in premium tiles, marbles, granites, and sanitaryware. With decades of expertise, we transform ordinary spaces into breathtaking masterpieces through quality craftsmanship and innovative design solutions.</p>
+            
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="MARBLE.jpg?height=120&width=150" alt="Elegant marble flooring">
+                </div>
+                <div class="gallery-item">
+                    <img src="TILE.jpg?height=120&width=150" alt="Custom tile work">
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Our Story</h2>
+            <p>Originating as a family-owned enterprise in Kerala, our company has built a legacy founded on trust, commitment, and excellence. With our headquarters in Irinjalakuda, Thrissur, and our showroom located in Potta, Chalakudy, we proudly serve the region with over three decades of experience.</p>
+            <p>Our journey began with a simple vision: to provide the highest quality materials with exceptional service. Today, we've grown to become one of the region's most respected suppliers of premium building materials.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Products & Services</h2>
+            
+            <div class="two-column">
+                <div class="column">
+                    <h3>Tiles, Marbles & Granites</h3>
+                    <p>A wide selection of exquisite materials suited for diverse design requirements. Our collection includes imported Italian marbles, premium granites, and designer tiles.</p>
+                    
+                    <h3>Sanitaryware</h3>
+                    <p>Combining style and functionality to enhance bathrooms and utility spaces. We offer a comprehensive range of high-quality fixtures and fittings from leading brands.</p>
+                </div>
+                
+                <div class="column">
+                    <h3>Customized Solutions</h3>
+                    <p>Tailored products and services designed to bring your unique vision to life. Our expert team works closely with you to create bespoke solutions.</p>
+                    
+                    <h3>Installation Services</h3>
+                    <p>Professional installation services to ensure perfect execution of your design vision, with attention to detail and quality craftsmanship.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Our Brands</h2>
+            <p>We are proud to be authorized dealers for some of the world's finest brands in tiles, marbles, and sanitaryware:</p>
+            
+            <div class="brand-logos">
+                <div class="brand-logo">
+                    <img src="QUTONE.png?height=50&width=100" alt="Brand Logo 1">
+                </div>
+                <div class="brand-logo">
+                    <img src="KAJARIA.jpg?height=50&width=100" alt="Brand Logo 2">
+                </div>
+                <div class="brand-logo">
+                    <img src="RAK.png?height=50&width=100" alt="Brand Logo 3">
+                </div>
+                <div class="brand-logo">
+                    <img src="SIMPOLO.png?height=50&width=100" alt="Brand Logo 4">
+                </div>
+                <div class="brand-logo">
+                    <img src="SUNHEARRT.jpg?height=50&width=100" alt="Brand Logo 5">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page 2: Proforma Invoice Introduction -->
+    <div class="page">
+        <div class="header">
+            <div class="company-info">
+                <div class="company-details">
+                    Headquarters: Irinjalakuda, Thrissur, Kerala<br>
+                    Showroom: Potta, Chalakudy, Kerala<br>
+                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                </div>
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-03-18_133440-removebg-preview-gi8AkSs2NzIEa7HsxZzyvuWa4agXyd.png" alt="Our Own Marble House Logo" class="logo">
+            </div>
+        </div>
+        
+<div class="section">
+            <h2>Why Choose Us?</h2>
+            <ul class="feature-list">
+                <li><strong>Proven Expertise:</strong> Over 35 years in the industry, ensuring meticulous attention to every detail.</li>
+                <li><strong>Premium Quality:</strong> We source only the finest materials to guarantee durability and timeless beauty.</li>
+                <li><strong>Customer-Centric Approach:</strong> Our personalized service is designed to exceed your expectations.</li>
+                <li><strong>Competitive Pricing:</strong> We offer the best value without compromising on quality.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Vision & Commitment</h2>
+            <p>Our mission is to continue setting benchmarks in the building materials industry. Committed to innovation, quality, and exceptional service, we strive to help our customers create spaces that are both functional and aesthetically stunning.</p>
+            <p>Discover how our premium flooring solutions can transform your project into a work of art.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Our Process</h2>
+            <ol>
+                <li><strong>Consultation:</strong> We begin with a detailed consultation to understand your requirements, preferences, and budget.</li>
+                <li><strong>Material Selection:</strong> Our experts help you select the perfect materials that align with your vision and practical needs.</li>
+                <li><strong>Quotation:</strong> We provide a transparent and detailed quotation with no hidden costs.</li>
+                <li><strong>Delivery:</strong> We ensure timely delivery of materials to your site, handled with utmost care.</li>
+                <li><strong>Support:</strong> Our team remains available for guidance during installation and after-sales support.</li>
+            </ol>
+        </div>
+        
+        <div class="section">
+            <h2>Contact Information</h2>
+            <p><strong>Headquarters:</strong> Irinjalakuda, Thrissur, Kerala</p>
+            <p><strong>Showroom:</strong> Potta, Chalakudy, Kerala</p>
+            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Email:</strong> info@ownmarblehouse.com</p>
+            <p><strong>Hours:</strong> Monday - Saturday: 9:00 AM - 7:00 PM</p>
+        </div>
+        
+        <div class="document-title" style="margin-top: 15mm; margin-bottom: 10mm;">Proforma Invoice</div>
+        
+        <div class="section">
+            <p style="text-align: center; font-size: 10pt;">The following page contains a detailed proforma invoice for your selected products and services.</p>
+            <p style="text-align: center; font-size: 10pt;">Please review all details carefully and contact us with any questions.</p>
+        </div>
+    </div>
+    
+    <!-- Page 3: Proforma Invoice -->
+    <div class="page">
+        <div class="document-title">Proforma Invoice</div>
+        
+        <div class="header">
+            <div class="company-info">
+                <div class="company-details">
+                    Headquarters: Irinjalakuda, Thrissur, Kerala<br>
+                    Showroom: Potta, Chalakudy, Kerala<br>
+                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                </div>
+            </div>
+            <div class="logo-container">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot_2025-03-18_133440-removebg-preview-gi8AkSs2NzIEa7HsxZzyvuWa4agXyd.png" alt="Our Own Marble House Logo" class="logo">
+            </div>
+        </div>
+        
+        <div class="invoice-details">
+            <div class="invoice-number">Invoice #: INV-2025-0319</div>
+            <div class="date">Date: March 19, 2025</div>
+            <div class="date">Valid Until: April 19, 2025</div>
+        </div>
+        
+        <div class="client-info">
+            <div class="section-title">Client Information</div>
+            <div class="info-row">
+                <span class="info-label">Client Name:</span>
+                <span class="info-value">John Doe</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Contact Number:</span>
+                <span class="info-value">+91 98765 43210</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Email Address:</span>
+                <span class="info-value">john.doe@example.com</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Address:</span>
+                <span class="info-value">123 Main Street, Kochi, Kerala, 682001</span>
+            </div>
+        </div>
+        
+        <div class="section-title">Item Details</div>
+        <table class="quote-table">
+            <thead>
+                <tr>
+                    <th>SR.</th>
+                    <th>Item Name</th>
+                    <th>Size</th>
+                    <th>Area (Sqft)</th>
+                    <th>Rate</th>
+                    <th>Total</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Italian Marble - Statuario</td>
+                    <td>600x600mm</td>
+                    <td>120</td>
+                    <td>₹450</td>
+                    <td>₹54,000.00</td>
+                    <td>Living Room</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Granite - Black Galaxy</td>
+                    <td>Custom</td>
+                    <td>35</td>
+                    <td>₹380</td>
+                    <td>₹13,300.00</td>
+                    <td>Kitchen</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ceramic Tiles - Wooden Finish</td>
+                    <td>200x1200mm</td>
+                    <td>80</td>
+                    <td>₹180</td>
+                    <td>₹14,400.00</td>
+                    <td>Bedroom</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="totals">
+            <div class="total-row">
+                <span class="total-row-name">Subtotal:</span>
+                <span>₹81,700.00</span>
+            </div>
+            <div class="total-row">
+                <span class="total-row-name">GST (18%):</span>
+                <span>₹14,706.00</span>
+            </div>
+            <div class="total-row" style="border-top: 1px solid var(--gray-300); padding-top: 2mm; margin-top: 1mm;">
+                <span class="total-row-name">Total Amount:</span>
+                <span>₹96,406.00</span>
+            </div>
+        </div>
+        
+        <div class="conditions">
+            <span class="conditions-title">Terms and Conditions:</span>
+            <ul>
+                <li>This is a proforma invoice and not a tax invoice.</li>
+                <li>Payment terms: 50% advance, remaining before delivery.</li>
+                <li>Delivery within 2-3 weeks from confirmation and receipt of advance payment.</li>
+                <li>Prices are valid for 30 days from the date of this proforma invoice.</li>
+                <li>Installation charges are not included unless specifically mentioned.</li>
+            </ul>
+        </div>
+        
+        <div class="signature-section">
+            <div class="signature-box">
+                <div class="signature-line">Authorized Signature</div>
+            </div>
+            <div class="signature-box">
+                <div class="signature-line">Client Signature</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
