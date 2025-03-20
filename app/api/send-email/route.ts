@@ -36,7 +36,7 @@ export async function POST(request: Request) {
     const emailContent = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 20px;">
-          <img src="https://proforma-invoice-creator.vercel.app/Logo_With_Name.png" alt="Our Own Marble House Logo" style="max-width: 150px; height: auto;" />
+          <img src="https://proforma-invoice-creator.vercel.app/Logo_With_Name.png" alt="Our Own Marble House Logo" style="max-width: 300px; height: auto;" />
         </div>
         <p>Dear ${clientDetails.name},<br>
         <br>Thank you for your interest in Our Own Marble House. Please find the attached proforma invoice for your reference.<br>
