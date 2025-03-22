@@ -497,7 +497,7 @@ const PDFTemplate = React.forwardRef<HTMLDivElement, PDFTemplateProps>((props, r
                 <div className="company-details">
                     Headquarters: Irinjalakuda, Thrissur, Kerala<br />
                     Showroom: Potta, Chalakudy, Kerala<br />
-                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                    Phone: +91 70349 03099 | Email: ownmarblehouse@gmail.com
                 </div>
             </div>
             <div className="logo-container">
@@ -578,7 +578,7 @@ const PDFTemplate = React.forwardRef<HTMLDivElement, PDFTemplateProps>((props, r
                 <div className="company-details">
                     Headquarters: Irinjalakuda, Thrissur, Kerala<br />
                     Showroom: Potta, Chalakudy, Kerala<br />
-                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                    Phone: +91 70349 03099 | Email: ownmarblehouse@gmail.com
                 </div>
             </div>
             <div className="logo-container">
@@ -616,7 +616,7 @@ const PDFTemplate = React.forwardRef<HTMLDivElement, PDFTemplateProps>((props, r
             <h2>Contact Information</h2>
             <p><strong>Headquarters:</strong> Irinjalakuda, Thrissur, Kerala</p>
             <p><strong>Showroom:</strong> Potta, Chalakudy, Kerala</p>
-            <p><strong>Phone:</strong> +91 98765 43210</p>
+            <p><strong>Phone:</strong> +91 70349 03099</p>
             <p><strong>Email:</strong> info@ownmarblehouse.com</p>
             <p><strong>Hours:</strong> Monday - Saturday: 9:00 AM - 7:00 PM</p>
         </div>
@@ -637,7 +637,7 @@ const PDFTemplate = React.forwardRef<HTMLDivElement, PDFTemplateProps>((props, r
                 <div className="company-details">
                     Headquarters: Irinjalakuda, Thrissur, Kerala<br />
                     Showroom: Potta, Chalakudy, Kerala<br />
-                    Phone: +91 98765 43210 | Email: info@ownmarblehouse.com
+                    Phone: +91 70349 03099 | Email: info@ownmarblehouse.com
                 </div>
             </div>
             <div className="logo-container">
